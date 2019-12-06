@@ -4,7 +4,7 @@
 A collection of PHP testing tools bundled into a docker container.
 
 ## Usage
-See [Commands](AvailableCommands) for all available parameters
+See below in Commands for all available parameters
 
 ### Execute all tests
 ```bash
@@ -26,7 +26,6 @@ Some tools require configuration, place these files in the root of the volume mo
 | phpunit | /phpunit.xml |
 
 ## Commands
-[AvailableCommands]: 1
 Each tool can be either individually executed or related tools sequentually. To run an individual tool, simply change the command on the end of the docker run command.
 
 ### Individual tools
