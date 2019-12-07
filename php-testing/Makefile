@@ -30,7 +30,7 @@ endif
 
 # Create a config for phpstan?
 ifneq ($(wildcard ${FOLDER_APP}/phpstan.neon),)
-	PARAMS_PHPSTAN:=-c phpstan.neon
+	PARAMS_PHPSTAN:=-c ${FOLDER_APP}/phpstan.neon
 endif
 
 # Create a config for PSALM?
