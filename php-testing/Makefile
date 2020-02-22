@@ -3,6 +3,7 @@
 #
 PARAMS_PHPSTAN=
 PARAMS_PSALM=
+PARAMS_PHPMD=
 
 PHPUNIT_COMMAND=
 
@@ -38,6 +39,12 @@ ifeq ($(wildcard ${FOLDER_APP}/psalm.xml),)
 	ifeq ($(PSALM_FOLDER),)
 		PARAMS_PSALM:=--init
 	endif
+endif
+
+ifeq ($(wildcard ${FOLDER_APP}/phpmd.xml),)
+	PARAMS_PHPMD:=cleancode,codesize,controversial,design,naming,unusedcode
+else
+	PARAMS_PHPMD:=${FOLDER_APP}/phpmd.xml
 endif
 
 # Enable phpunit if the xml file exists
@@ -76,7 +83,7 @@ phpcpd:
 	phpcpd --exclude=${VENDOR_FOLDER} ${FOLDER_SOURCE}
 
 phpmd:
-	phpmd ${FOLDER_SOURCE} text cleancode,codesize,controversial,design,naming,unusedcode --exclude ${VENDOR_FOLDER}
+	phpmd ${FOLDER_SOURCE} text $(PARAMS_PHPMD) --exclude ${VENDOR_FOLDER}
 
 phpstan:
 	phpstan analyse --autoload-file=${FOLDER_APP}/vendor/autoload.php -l 6 $(PARAMS_PHPSTAN) ${FOLDER_SOURCE}
