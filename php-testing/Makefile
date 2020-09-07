@@ -62,7 +62,7 @@ composer-install:
 	cd ${FOLDER_APP} && composer install --no-dev --ignore-platform-reqs --optimize-autoloader --prefer-dist
 	
 composer-install-dev:
-	cd ${FOLDER_APP} && composer install --dev --ignore-platform-reqs 
+	cd ${FOLDER_APP} && composer install --ignore-platform-reqs 
 
 composer-update: 
 	cd ${FOLDER_APP} && composer update --ignore-platform-reqs
