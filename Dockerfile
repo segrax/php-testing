@@ -1,4 +1,4 @@
-FROM php:7.4
+FROM php:8.0
 
 ENV PATH /php-testing/vendor/bin:${PATH}
 
